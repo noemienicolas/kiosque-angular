@@ -8,6 +8,7 @@ import {SoldeAgentComponent} from './solde-agent/solde-agent.component';
 
 
 const routes: Routes = [
+  {path: '', redirectTo: 'solde-agent', pathMatch: 'full'},
   {path: 'liste-type-absence', component: ListeTypeAbsenceComponent},
   {path: 'solde-agent', component: SoldeAgentComponent}
 ];
