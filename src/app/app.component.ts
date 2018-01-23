@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import {environment} from '../environments/environment';
@@ -23,7 +23,7 @@ export class AppComponent {
 
   selectedGroupeAbsence: GroupeAbsence = null;
 
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
     this.getListeGroupeAbsence();
   }
 
@@ -36,8 +36,7 @@ export class AppComponent {
 
   private getListeGroupeAbsence() {
     const url: string = environment.urlAbsWS + 'filtres/getGroupesAbsence';
-    return this._http.get(url)
-      .map(res => res.json())
+    return this._http.get<GroupeAbsence[]>(url)
       .subscribe(data => {
         this.listeGroupeAbsence = data;
       });
@@ -49,7 +48,6 @@ export class AppComponent {
     } else {
       const url: string = environment.urlAbsWS + 'typeAbsence/getListeTypeAbsence?idRefGroupeAbsence='+this.selectedGroupeAbsence.idRefGroupeAbsence;
       return this._http.get(url)
-        .map(res => res.json())
         .subscribe(data => {
           this.listeTypeAbsence = data;
         });
