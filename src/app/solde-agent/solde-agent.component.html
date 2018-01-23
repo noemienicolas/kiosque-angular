@@ -1,0 +1,27 @@
+<p></p>
+
+<p>Votre solde de repos compensateurs</p>
+<table border="1" *ngIf="soldeAgent"  ngDefaultControl>
+	<tr>
+		<td>Année N-1</td>
+		<td>Année N</td>
+	</tr>
+
+	<tr>
+		<td>{{soldeAgent.soldeReposCompAnneePrec}}</td>
+		<td>{{soldeAgent.soldeReposCompAnnee}}</td>
+	</tr>
+</table>
+
+<p>Votre solde de congés</p>
+<table border="1" *ngIf="soldeAgent" ngDefaultControl>
+	<tr>
+		<td>Année N-1</td>
+		<td>Année N</td>
+	</tr>
+
+	<tr>
+		<td>{{soldeAgent.soldeCongeAnneePrec}}</td>
+		<td>{{soldeAgent.soldeCongeAnnee}}</td>
+	</tr>
+</table>

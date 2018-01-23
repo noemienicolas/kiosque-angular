@@ -1,20 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align: center">
-	<h1>Welcome to {{ title }}!</h1>
-
-	<span>Liste des groupes d'absence :</span>
-	<div class="styled-select green rounded">
-		<SELECT (change)="onChange($event)" ngDefaultControl>
-			<option *ngFor="let d of listeGroupeAbsence"
-				[value]="d.idRefGroupeAbsence">{{d.libelle}}</option>
-		</SELECT>
-	</div>
-
-	<h2 *ngIf="selectedGroupeAbsence">Liste des types d'absence :</h2>
-	<div *ngIf="selectedGroupeAbsence" class="styled-select blue rounded">
-		<SELECT *ngIf="selectedGroupeAbsence">
-			<option *ngFor="let d of listeTypeAbsence">{{d.libelle}}</option>
-		</SELECT>
-	</div>
-
-</div>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/solde-agent">Votre solde</a>
+  <a routerLink="/liste-type-absence">Type absence</a>
+</nav>
+<router-outlet></router-outlet>
