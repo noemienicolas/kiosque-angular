@@ -15,6 +15,9 @@ import {SoldeAgent} from '../class/SoldeAgent';
 export class SoldeAgentComponent implements OnInit {
 
   soldeAgent: SoldeAgent = null;
+  afficheAjoutSoleReposComp = false;
+  afficheAjoutSoleCongeAnnuel = false;
+
 
 
   constructor(private _http: HttpClient) {
@@ -36,5 +39,20 @@ export class SoldeAgentComponent implements OnInit {
       .subscribe(data => {
         this.soldeAgent = data;
       });
+  }
+
+  private openDialog(typeAbsence: number) {
+    this.afficheAjoutSoleReposComp = false;
+    this.afficheAjoutSoleCongeAnnuel = false;
+    switch (typeAbsence) {
+      case 1:
+        this.afficheAjoutSoleReposComp = true;
+        break;
+      case 2:
+        this.afficheAjoutSoleCongeAnnuel = true;
+        break;
+      default:
+        break;
+    }
   }
 }

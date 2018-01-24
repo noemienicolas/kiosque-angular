@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ListeTypeAbsenceComponent } from './liste-type-absence/liste-type-absence.component';
 import { SoldeAgentComponent } from './solde-agent/solde-agent.component';
+import { AjoutSoldeAgentComponent } from './ajout-solde-agent/ajout-solde-agent.component';
+import { ListeMotifCompteurComponent } from './liste-motif-compteur/liste-motif-compteur.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListeTypeAbsenceComponent,
-    SoldeAgentComponent
+    SoldeAgentComponent,
+    AjoutSoldeAgentComponent,
+    ListeMotifCompteurComponent
   ],
   imports: [
     HttpClientModule,

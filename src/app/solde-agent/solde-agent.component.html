@@ -5,23 +5,35 @@
 	<tr>
 		<td>Année N-1</td>
 		<td>Année N</td>
+		<td>Gerer solde</td>
 	</tr>
 
 	<tr>
-		<td>{{soldeAgent.soldeReposCompAnneePrec}}</td>
-		<td>{{soldeAgent.soldeReposCompAnnee}}</td>
+		<td align="center">{{soldeAgent.soldeReposCompAnneePrec}}</td>
+		<td align="center">{{soldeAgent.soldeReposCompAnnee}}</td>
+		<td align="center"><button (click)="openDialog(1)"><img src="/assets/images/plus.png" width="30" height="30" /></button></td>
 	</tr>
 </table>
+<div *ngIf="afficheAjoutSoleReposComp">
+	<app-ajout-solde-agent typeAbsence="2"></app-ajout-solde-agent>
+</div>
+
+<!-- Partie des congés annuels -->
 
 <p>Votre solde de congés</p>
 <table border="1" *ngIf="soldeAgent" ngDefaultControl>
 	<tr>
 		<td>Année N-1</td>
 		<td>Année N</td>
+		<td>Gerer solde</td>
 	</tr>
 
 	<tr>
-		<td>{{soldeAgent.soldeCongeAnneePrec}}</td>
-		<td>{{soldeAgent.soldeCongeAnnee}}</td>
+		<td align="center">{{soldeAgent.soldeCongeAnneePrec}}</td>
+		<td align="center">{{soldeAgent.soldeCongeAnnee}}</td>
+		<td align="center"><button (click)="openDialog(2)"><img src="/assets/images/plus.png" width="30" height="30" /></button></td>
 	</tr>
 </table>
+<div *ngIf="afficheAjoutSoleCongeAnnuel">
+	<app-ajout-solde-agent typeAbsence="1"></app-ajout-solde-agent>
+</div>
