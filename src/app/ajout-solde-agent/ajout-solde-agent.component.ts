@@ -2,6 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {CompteurDto} from '../class/CompteurDto';
+import { MotifCompteurDto } from '../class/MotifCompteurDto';
 
 @Component({
   selector: 'app-ajout-solde-agent',
@@ -16,12 +17,13 @@ export class AjoutSoldeAgentComponent implements OnInit {
   constructor(private _http: HttpClient) { }
 
   ngOnInit() {
-    console.log(this.typeAbsence);
+  }
+
+  changeValueMotifCompteur (selection : MotifCompteurDto) {
+    this.dto.motifCompteurDto.idMotifCompteur = selection.idMotifCompteur;
   }
 
   private postChange() {
-    //    console.log(this.dto.isRetrait);
-    //    console.log(this.dto.isAnneePrecedente);
     const duree = this.dto.dureeAAjouter;
     if (this.dto.isRetrait) {
       this.dto.dureeARetrancher = duree;
@@ -30,9 +32,7 @@ export class AjoutSoldeAgentComponent implements OnInit {
       this.dto.dureeARetrancher = null;
       this.dto.dureeAAjouter = duree;
     }
-    //    console.log(this.dto.dureeAAjouter);
-    //    console.log(this.dto.dureeARetrancher);
-    //    on contruit le DTO pour le POST
+    //    on construit le DTO pour le POST
     if (this.typeAbsence != null) {
       this.dto.idAgent = 9005138;
       let url: string = environment.urlAbsWS;

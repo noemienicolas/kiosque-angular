@@ -5,7 +5,7 @@ export class CompteurDto {
   idAgent: number;
   dureeAAjouter: number;
   dureeARetrancher: number;
-  motifCompteurDto: MotifCompteurDto;
+  motifCompteurDto: MotifCompteurDto = new MotifCompteurDto();
   isAnneePrecedente = false;
   isRetrait = true;
   dateDebut: Date;

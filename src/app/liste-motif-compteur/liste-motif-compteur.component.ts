@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
-import { MotifCompteurDto } from '../class/MotifCompteurDto';
+import {MotifCompteurDto} from '../class/MotifCompteurDto';
 
 @Component({
   selector: 'app-liste-motif-compteur',
@@ -14,20 +14,23 @@ export class ListeMotifCompteurComponent implements OnInit {
 
   @Input() typeAbsencePourMotif: number;
 
-  listeMotifCompteur: MotifCompteurDto[];
+  //pour retourner l'élément selectionné
+  @Output() changeMotifCompteur: EventEmitter<any> = new EventEmitter();
 
+  listeMotifCompteur: MotifCompteurDto[] = [];
   selectedMotifCompteur: MotifCompteurDto = null;
 
   constructor(private _http: HttpClient) {
   }
 
-  private getListeMotifCompteur(typeAbsence : number) {
-    console.log(this.typeAbsencePourMotif);
-    const url: string = environment.urlAbsWS + 'motifCompteur/getListeMotifCompteur?idRefType='+typeAbsence;
-    console.log(url);
+  private getListeMotifCompteur(typeAbsence: number) {
+    const url: string = environment.urlAbsWS + 'motifCompteur/getListeMotifCompteur?idRefType=' + typeAbsence;
     return this._http.get<MotifCompteurDto[]>(url)
       .subscribe(data => {
         this.listeMotifCompteur = data;
+        //on initialise la valeur selectionnée
+        this.selectedMotifCompteur = data[0];
+        this.changeMotifCompteur.emit(this.selectedMotifCompteur);
       });
   }
 
@@ -38,7 +41,7 @@ export class ListeMotifCompteurComponent implements OnInit {
   private onChange(event) {
     const value = parseInt(event.target.value, 10);
     this.selectedMotifCompteur = this.listeMotifCompteur.find(groupe => groupe.idMotifCompteur === value);
-    console.log('value ' + this.selectedMotifCompteur.idMotifCompteur);
+    this.changeMotifCompteur.emit(this.selectedMotifCompteur);
   }
 
 }

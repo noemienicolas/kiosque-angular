@@ -12,5 +12,5 @@ Cette année
 <input type="radio" id="anneen1" [checked]="dto.isAnneePrecedente"  [value]="true" [(ngModel)]="dto.isAnneePrecedente" />
 Année précédente
 <br />
-<app-liste-motif-compteur [typeAbsencePourMotif]="typeAbsence"></app-liste-motif-compteur>
+<app-liste-motif-compteur (changeMotifCompteur)="changeValueMotifCompteur($event);" [typeAbsencePourMotif]="typeAbsence"></app-liste-motif-compteur>
 <button (click)="postChange()">Valider</button>
