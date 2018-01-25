@@ -1,8 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {CompteurDto} from '../class/CompteurDto';
 import { MotifCompteurDto } from '../class/MotifCompteurDto';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-ajout-solde-agent',
@@ -14,7 +15,7 @@ export class AjoutSoldeAgentComponent implements OnInit {
   @Input() typeAbsence: number;
   dto: CompteurDto = new CompteurDto();
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private location: Location) { }
 
   ngOnInit() {
   }
@@ -53,6 +54,8 @@ export class AjoutSoldeAgentComponent implements OnInit {
         .subscribe(data => {
           //          this.soldeAgent = data;
           console.log('valide');
+          //on refresh le composant
+          location.reload();
         }, err => {
           console.log(err.status + ' : '+err.error.errors); //on recup la liste des messages d'erreur
         });
