@@ -13,11 +13,12 @@ import { Location } from '@angular/common';
 export class AjoutSoldeAgentComponent implements OnInit {
 
   @Input() typeAbsence: number;
-  dto: CompteurDto = new CompteurDto();
+  dto: CompteurDto ;
 
   constructor(private _http: HttpClient, private location: Location) { }
 
   ngOnInit() {
+  this.dto = new CompteurDto();
   }
 
   changeValueMotifCompteur (selection : MotifCompteurDto) {
@@ -60,9 +61,6 @@ export class AjoutSoldeAgentComponent implements OnInit {
           console.log(err.status + ' : '+err.error.errors); //on recup la liste des messages d'erreur
         });
     }
-    //on remet valeur pour binding
-    this.dto.dureeARetrancher = duree;
-    this.dto.dureeAAjouter = duree;
   }
 
 }

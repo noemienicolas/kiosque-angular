@@ -6,10 +6,11 @@ export class CompteurDto {
   dureeAAjouter: number;
   dureeARetrancher: number;
   motifCompteurDto: MotifCompteurDto = new MotifCompteurDto();
-  isAnneePrecedente = false;
-  isRetrait = true;
+  anneePrecedente : boolean;
+  isRetrait = false;
   dateDebut: Date;
   dateFin: Date;
+
 
   constructor() {}
 }

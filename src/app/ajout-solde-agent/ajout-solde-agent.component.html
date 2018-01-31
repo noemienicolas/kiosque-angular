@@ -2,14 +2,14 @@ Durée :
 <input type="number" [(ngModel)]="dto.dureeAAjouter"/>
 jours.
 <br />
-<input type="radio" id="ajout" [checked]="!dto.isRetrait" [value]="false" [(ngModel)]="dto.isRetrait"  />
+<input type="radio" id="ajout" [checked]="!dto.isRetrait" (change)="dto.isRetrait = false"   />
 Ajout
-<input type="radio" id="retrait" [checked]="dto.isRetrait"  [value]="true" [(ngModel)]="dto.isRetrait" />
+<input type="radio" id="retrait" [checked]="dto.isRetrait" (change)="dto.isRetrait = true"  />
 Retrait
 <br />
-<input type="radio" id="annee" [checked]="!dto.isAnneePrecedente" [value]="false" [(ngModel)]="dto.isAnneePrecedente" />
+<input type="radio" [checked]="!dto.anneePrecedente" (change)="dto.anneePrecedente = false" >
 Cette année
-<input type="radio" id="anneen1" [checked]="dto.isAnneePrecedente"  [value]="true" [(ngModel)]="dto.isAnneePrecedente" />
+<input type="radio" [checked]="dto.anneePrecedente"  (change)="dto.anneePrecedente = true" />
 Année précédente
 <br />
 <app-liste-motif-compteur (changeMotifCompteur)="changeValueMotifCompteur($event);" [typeAbsencePourMotif]="typeAbsence"></app-liste-motif-compteur>
