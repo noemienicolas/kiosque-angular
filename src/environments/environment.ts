@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  urlAbsWS : 'http://localhost:8080/sirh-abs-ws/'
+  urlAbsWS : 'http://localhost:8085/sirh-abs-ws/'
 };
