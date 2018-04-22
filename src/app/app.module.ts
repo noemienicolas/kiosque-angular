@@ -10,6 +10,7 @@ import { ListeTypeAbsenceComponent } from './liste-type-absence/liste-type-absen
 import { SoldeAgentComponent } from './solde-agent/solde-agent.component';
 import { AjoutSoldeAgentComponent } from './ajout-solde-agent/ajout-solde-agent.component';
 import { ListeMotifCompteurComponent } from './liste-motif-compteur/liste-motif-compteur.component';
+import { DetailTypeAbsenceComponent } from './detail-type-absence/detail-type-absence.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ListeMotifCompteurComponent } from './liste-motif-compteur/liste-motif-
     ListeTypeAbsenceComponent,
     SoldeAgentComponent,
     AjoutSoldeAgentComponent,
-    ListeMotifCompteurComponent
+    ListeMotifCompteurComponent,
+    DetailTypeAbsenceComponent
   ],
   imports: [
     HttpClientModule,

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
+import { Router } from '@angular/router';
 
 // import des classes
 import {GroupeAbsence} from '../class/GroupeAbsence';
@@ -21,8 +22,7 @@ export class ListeTypeAbsenceComponent implements OnInit {
 
   selectedGroupeAbsence: GroupeAbsence = null;
 
-  constructor(private _http: HttpClient) {
-    this.getListeGroupeAbsence();
+  constructor(private _http: HttpClient, private router: Router) {
   }
 
   private onChange(event) {
@@ -52,7 +52,14 @@ export class ListeTypeAbsenceComponent implements OnInit {
     }
   }
 
+  private changeRoute(event) {
+    const value = parseInt(event.target.value, 10);
+    let link = ['/test',value];
+    this.router.navigate(link);
+  }
+
   ngOnInit() {
+    this.getListeGroupeAbsence();
   }
 
 }

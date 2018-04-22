@@ -38,8 +38,7 @@ export class ListeMotifCompteurComponent implements OnInit {
     this.getListeMotifCompteur(this.typeAbsencePourMotif);
   }
 
-  private onChange(event) {
-    const value = parseInt(event.target.value, 10);
+  private onChange(value : number) {
     this.selectedMotifCompteur = this.listeMotifCompteur.find(groupe => groupe.idMotifCompteur === value);
     this.changeMotifCompteur.emit(this.selectedMotifCompteur);
   }

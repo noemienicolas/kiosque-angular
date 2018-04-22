@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
 	<div class="styled-select green rounded">
-		Liste des motifs :<SELECT (change)="onChange($event)" ngDefaultControl>
+		Liste des motifs :<SELECT #test (change)="onChange(test.value)" ngDefaultControl>
 			<option *ngFor="let d of listeMotifCompteur"
 				[value]="d.idMotifCompteur">{{d.libelle}}</option>
 		</SELECT>

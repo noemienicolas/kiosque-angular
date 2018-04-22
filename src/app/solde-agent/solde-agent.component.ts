@@ -21,10 +21,10 @@ export class SoldeAgentComponent implements OnInit {
 
 
   constructor(private _http: HttpClient) {
-    this.getSoldeAgent();
   }
 
   ngOnInit() {
+    this.getSoldeAgent();
   }
 
 
